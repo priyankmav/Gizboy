@@ -3,16 +3,31 @@ var logger = require('./logger');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var mongodb = require('mongodb');
 var bluebird = require('bluebird');
 var glob = require('glob');
 var cors = require('cors');
-
+var MongoClient = mongodb.MongoClient;
+var url = process.env.MONGOLAB_URI;
 module.exports = function (app, config) {
 
   //app.use(cors({origin:'http://localhost:9000'}));
   logger.log("Loading Mongoose functionality");
   mongoose.Promise = require('bluebird');
-  mongoose.connect(process.env.MONGOLAB_URI);/*, {}, function(error, db){
+
+  MongoClient.connect(url, function (err, db) {
+    if (err) {
+      console.log('Unable to connect to the mongoDB server. Error:', err);
+    } else {
+      console.log('Connection established to', url);
+  
+      // do some work here with the database.
+  
+      //Close connection
+      db.close();
+    }
+  });
+  /*mongoose.connect(process.env.MONGOLAB_URI);/*, {}, function(error, db){
 
     // console.log will write to the heroku log which can be accessed via the 
     // command line as "heroku logs"

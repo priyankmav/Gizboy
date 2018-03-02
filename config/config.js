@@ -7,7 +7,7 @@ development: {
             root: rootPath,    
             app: {      name: 'GizBoy'    },    
             port: 5000,  
-            db: 'mongodb://127.0.0.1/todo-dev',
+            db: 'mongodb://gizboy:apple123@ds153978.mlab.com:53978/heroku_z8q7l9hf',
             uploads: rootPath + "/public/uploads/",            
             secret: "adkjaljdaskjdla"
  },  
@@ -16,7 +16,7 @@ development: {
   root: rootPath,    
   app: {      name: 'Gizboy'    },    
   port: 4000,
-  db: 'mongodb://127.0.0.1/todo-test',
+  db: 'mongodb://gizboy:apple123@ds153978.mlab.com:53978/heroku_z8q7l9hf',
   secret: "adkjaljdaskjdla"
 }, 
  
@@ -24,7 +24,7 @@ development: {
               root: rootPath,    
               app: {      name: 'Gizboy'    },    
                port: 80,
-               db: 'mongodb://127.0.0.1/todo',
+               db: 'mongodb://gizboy:apple123@ds153978.mlab.com:53978/heroku_z8q7l9hf',
                secret: "adkjaljdaskjdla"
               }
   };
