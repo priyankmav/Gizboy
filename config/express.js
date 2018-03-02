@@ -12,14 +12,15 @@ module.exports = function (app, config) {
   //app.use(cors({origin:'http://localhost:9000'}));
   logger.log("Loading Mongoose functionality");
   mongoose.Promise = require('bluebird');
-  mongoose.connect('mongodb://gizboy:apple123@ds153978.mlab.com:53978/heroku_z8q7l9hf');/*, {}, function(error, db){
+  mongoose.connect(process.env.MONGOLAB_URI);/*, {}, function(error, db){
 
     // console.log will write to the heroku log which can be accessed via the 
     // command line as "heroku logs"
     db.addListener("error", function(error){
       console.log("Error connecting to MongoLab");
     });
-  }*/
+  }
+*/
   
   /*mongoose.connect(config.db, {useMongoClient: true});
   var db = mongoose.connection;
