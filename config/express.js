@@ -8,25 +8,28 @@ var bluebird = require('bluebird');
 var glob = require('glob');
 var cors = require('cors');
 //var MongoClient = mongodb.MongoClient;
-//var url = process.env.MONGOLAB_URI;
+
 module.exports = function (app, config) {
 
   //app.use(cors({origin:'http://localhost:9000'}));
   logger.log("Loading Mongoose functionality");
   mongoose.Promise = require('bluebird');
 
-  mongoose.connect(process.env.MONGOLAB_URI, function (err, db) {
-    if (err) {
-      console.log('Unable to connect to the mongoDB server. Error:', err);
-    } else {
-      console.log('Connection established to', "");
-  
-      // do some work here with the database.
-  
-      //Close connection
-      db.close();
-    }
-  });
+// mongodb connection
+mongoose.connect("mongodb://gizboy:apple123@ds153978.mlab.com:53978/heroku_z8q7l9hf", {
+  useMongoClient: true,
+  promiseLibrary: global.Promise
+});
+
+var db = mongoose.connection;
+
+// mongodb error
+db.on('error', console.error.bind(console, 'connection error:'));
+
+// mongodb connection open
+db.once('open', () => {
+  console.log(`Connected to Mongo at: ${new Date()}`)
+});
   /*mongoose.connect(process.env.MONGOLAB_URI);/*, {}, function(error, db){
 
     // console.log will write to the heroku log which can be accessed via the 
