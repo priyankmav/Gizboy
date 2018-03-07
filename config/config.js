@@ -6,11 +6,12 @@ var config = {
 development: {    
             root: rootPath,    
             app: {      name: 'GizBoy'    },    
-            //port: 5000,  
+            port: process.env.PORT || 5000,  
             db: 'mongodb://gizboy:apple123@ds153978.mlab.com:53978/heroku_z8q7l9hf',
             uploads: rootPath + "/public/uploads/",            
             secret: "adkjaljdaskjdla"
  },  
+
 
  test: {    
   root: rootPath,    
