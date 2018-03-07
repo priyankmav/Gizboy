@@ -4,7 +4,7 @@ var logger = require('./config/logger');
 var app = express();
 
 
-// var port = process.env.port || 3000;
+const PORT = process.env.PORT || 5000;
 
 require('./config/express')(app, config);
 
