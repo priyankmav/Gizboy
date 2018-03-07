@@ -47,7 +47,7 @@ define('auth-config',['exports'], function (exports) {
         value: true
     });
     var authConfig = {
-        baseUrl: "http://localhost:5000/api",
+        baseUrl: "http://gizboy.herokuapp.com/api",
         loginUrl: '/users/login',
         tokenName: 'token',
         authHeader: 'Authorization',
@@ -640,7 +640,7 @@ define('resources/data/data-services',['exports', 'aurelia-framework', 'aurelia-
       _classCallCheck(this, DataServices);
 
       this.httpClient = http;
-      this.BASE_URL = "http://localhost:5000/api/";
+      this.BASE_URL = 'http://gizboy.herokuapp.com/api/';
       this.httpClient.configure(function (config) {
         config.withBaseUrl(_this.BASE_URL).withDefaults({
           credentials: 'same-origin',
