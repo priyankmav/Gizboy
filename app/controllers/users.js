@@ -46,7 +46,7 @@ router.post('/login', requireAuth, function(req, res, next){
                 });
         });
 
-         router.post('/users', requireAuth, function (req, res, next) {
+         router.post('/users', function (req, res, next) {
             logger.log('Create User', 'verbose');
            var user = new User(req.body);
             user.save()
@@ -58,7 +58,7 @@ router.post('/login', requireAuth, function(req, res, next){
             })
           });
              
-         router.get('/users', requireAuth, function(req, res, next){
+         router.get('/users', function(req, res, next){
             logger.log('Get all users', 'verbose');
   
              var query = User.find()
@@ -104,7 +104,7 @@ router.put('/users/:userId', requireAuth, function(req, res, next){
              }); 
             
      
-router.delete('/users/:userId', requireAuth, function(req, res, next){
+router.delete('/users/:userId', function(req, res, next){
              logger.log('Delete User ', + req.params.userId,  'verbose');
         
                  User.remove({ _id: req.params.userId })
