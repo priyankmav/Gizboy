@@ -17,7 +17,6 @@ module.exports = function (app, config) {
 
 // mongodb connection
 mongoose.connect("mongodb://gizboy:apple123@ds153978.mlab.com:53978/heroku_z8q7l9hf", {
-  useMongoClient: true,
   promiseLibrary: global.Promise
 });
 
