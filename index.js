@@ -4,7 +4,8 @@ var logger = require('./config/logger');
 var app = express();
 
 
-const PORT = process.env.PORT || 5000;
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number);
 
 require('./config/express')(app, config);
 
